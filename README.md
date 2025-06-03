@@ -1,86 +1,86 @@
 # Retro Productivity App 🎮
 
-Retro Productivity App je moderna aplikacija za produktivnost sa retro estetikom iz 90-ih. Kombinuje Pomodoro timer, todo listu i ambijentalne medije da vam pomogne da ostanete fokusirani i produktivni.
+A modern productivity application with a 90s retro aesthetic. It combines a Pomodoro timer, todo list, and ambient media to help you stay focused and productive.
 
-## 🌟 Glavne Funkcije
+## 🌟 Main Features
 
 ### ⏲️ Pomodoro Timer
-- Prilagodljiva vremena za:
-  - Rad (podrazumevano 25 minuta)
-  - Pauzu (podrazumevano 5 minuta)
-  - Dugu pauzu (podrazumevano 15 minuta)
-- Brojač sesija sa automatskim dugim pauzama
-- Vizuelni prikaz progresa
-- Desktop notifikacije
-- Zvučna obaveštenja
+- Customizable durations for:
+  - Work (default 25 minutes)
+  - Break (default 5 minutes)
+  - Long break (default 15 minutes)
+- Session counter with automatic long breaks
+- Visual progress bar
+- Desktop notifications
+- Sound alerts
 
-### 📝 Todo Lista
-- Dodavanje, završavanje i brisanje zadataka
-- Nivoi prioriteta (visok, srednji, nizak)
-- Rokovi za završetak
-- Kategorije zadataka
-- Pretraga i filtriranje
-- Statistika zadataka
-- Izvoz/Uvoz zadataka
+### 📝 Todo List
+- Add, complete, and delete tasks
+- Priority levels (high, medium, low)
+- Due dates
+- Task categories
+- Search and filter functionality
+- Task statistics
+- Export/Import tasks
 
-### 🎵 Medija Player
-- Live webcam prikazi iz različitih gradova:
+### 🎵 Media Player
+- Live webcam feeds from various cities:
   - New York
   - Dublin
   - St. Petersburg
   - Tokyo
   - Paris
-- Radio stanice:
+- Radio stations:
   - Radio New York Live
   - Dublin City FM
   - Smooth Jazz
   - Classical Radio
-- Lofi radio stanice:
+- Lofi radio stations:
   - Lofi Girl
   - Chillhop
   - Box Lofi
   - The Jazz Hop Café
-- Kontrola jačine zvuka
-- Play/Pause kontrole
+- Volume control
+- Play/Pause controls
 
-### 🎨 Opšte Funkcije
-- Tamna/Svetla tema
-- Responzivan dizajn
-- Offline podrška
-- Lokalno čuvanje podataka
-- Prečice na tastaturi
+### 🎨 General Features
+- Dark/Light theme
+- Responsive design
+- Offline support
+- Local storage for data
+- Keyboard shortcuts
 
-## ⌨️ Prečice na Tastaturi
-- `Ctrl/Cmd + P`: Otvori/zatvori Pomodoro sidebar
-- `Ctrl/Cmd + T`: Otvori/zatvori Todo sidebar
+## ⌨️ Keyboard Shortcuts
+- `Ctrl/Cmd + P`: Toggle Pomodoro sidebar
+- `Ctrl/Cmd + T`: Toggle Todo sidebar
 
-## 🚀 Kako Koristiti
+## 🚀 How to Use
 
 ### Pomodoro Timer
-1. Kliknite na ⏲️ ikonicu da otvorite Pomodoro timer
-2. Podesite željena vremena za rad i pauze
-3. Kliknite "Start" da pokrenete timer
-4. Koristite "Pause" da privremeno zaustavite timer
-5. Koristite "Reset" da počnete iznova
+1. Click the ⏲️ icon to open the Pomodoro timer
+2. Set your desired work and break durations
+3. Click "Start" to begin the timer
+4. Use "Pause" to temporarily stop the timer
+5. Use "Reset" to start over
 
-### Todo Lista
-1. Kliknite na 📝 ikonicu da otvorite todo listu
-2. Unesite zadatak u polje za unos
-3. Postavite prioritet, rok i kategoriju (opciono)
-4. Pritisnite Enter da dodate zadatak
-5. Označite checkbox da završite zadatak
-6. Koristite filtere za organizaciju prikaza
-7. Izvezite/Uvezite zadatke pomoću dugmadi na dnu
+### Todo List
+1. Click the 📝 icon to open the todo list
+2. Enter a task in the input field
+3. Set priority, due date, and category (optional)
+4. Press Enter to add the task
+5. Check the checkbox to complete a task
+6. Use filters to organize your view
+7. Export/Import tasks using the buttons at the bottom
 
-### Medija Player
-1. Izaberite webcam iz padajućeg menija da promenite prikaz grada
-2. Izaberite radio stanicu ili lofi stanicu za reprodukciju
-3. Koristite play/pause dugme za kontrolu reprodukcije
-4. Podesite jačinu zvuka pomoću klizača
+### Media Player
+1. Select a webcam from the dropdown to change the city view
+2. Choose a radio station or lofi station for playback
+3. Use the play/pause button to control playback
+4. Adjust volume using the slider
 
-## 🛠️ Tehnički Detalji
+## 🛠️ Technical Details
 
-### Struktura Projekta
+### Project Structure
 ```
 retro-productivity/
 ├── css/
@@ -101,58 +101,58 @@ retro-productivity/
 └── sw.js
 ```
 
-### Korišćene Tehnologije
+### Technologies Used
 - HTML5
-- CSS3 (sa CSS varijablama i modernim svojstvima)
+- CSS3 (with CSS variables and modern properties)
 - Vanilla JavaScript (ES6+)
-- Service Workers za offline podršku
-- Local Storage za čuvanje podataka
+- Service Workers for offline support
+- Local Storage for data persistence
 - Web Audio API
 - Notifications API
 
-## 🔧 Instalacija
+## 🔧 Installation
 
-1. Klonirajte repozitorijum:
+1. Clone the repository:
 ```bash
 git clone https://github.com/yourusername/retro-productivity.git
 cd retro-productivity
 ```
 
-2. Pokrenite lokalni server (npr. sa Python-om):
+2. Start a local server (e.g., with Python):
 ```bash
-# Za Python 3
+# For Python 3
 python -m http.server 8000
 
-# Za Python 2
+# For Python 2
 python -m SimpleHTTPServer 8000
 ```
 
-3. Otvorite pretraživač i idite na `http://localhost:8000`
+3. Open your browser and navigate to `http://localhost:8000`
 
-## 🌐 Podržani Pretraživači
-- Google Chrome (preporučeno)
+## 🌐 Supported Browsers
+- Google Chrome (recommended)
 - Mozilla Firefox
 - Microsoft Edge
 - Safari
 
-## 📱 Responzivnost
-Aplikacija je u potpunosti responzivna i radi na:
-- Desktop računarima
-- Tabletima
-- Mobilnim telefonima
+## 📱 Responsiveness
+The application is fully responsive and works on:
+- Desktop computers
+- Tablets
+- Mobile phones
 
-## 🤝 Doprinos
-Doprinosi su dobrodošli! Ako želite da doprinesete:
-1. Fork-ujte projekat
-2. Napravite novu granu (`git checkout -b feature/amazing-feature`)
-3. Commit-ujte promene (`git commit -m 'Add amazing feature'`)
-4. Push-ujte na granu (`git push origin feature/amazing-feature`)
-5. Otvorite Pull Request
+## 🤝 Contributing
+Contributions are welcome! If you'd like to contribute:
+1. Fork the project
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## 📄 Licenca
-Ovaj projekat je licenciran pod MIT licencom - pogledajte [LICENSE](LICENSE) fajl za detalje.
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Zahvalnice
-- Lofi Girl za lofi muziku
-- Earthcam za webcam strimove
-- Radio Garden za radio strimove
+## 🙏 Acknowledgments
+- Lofi Girl for lofi music
+- Earthcam for webcam streams
+- Radio Garden for radio streams
