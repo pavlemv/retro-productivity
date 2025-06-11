@@ -1,0 +1,40 @@
+{
+  "name": "Retro Productivity App",
+  "short_name": "RetroProductive",
+  "description": "90s Inspired Productivity App with Pomodoro Timer, Todo List, and Ambient Media",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#FFEBD2",
+  "theme_color": "#E9967A",
+  "orientation": "portrait-primary",
+  "categories": ["productivity", "lifestyle"],
+  "lang": "en",
+  "icons": [
+    {
+      "src": "images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/icon-512.png", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "images/screenshot1.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "images/screenshot2.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ]
+} 

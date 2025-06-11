@@ -1,16 +1,16 @@
 # Retro Productivity App 🎮
 
-A modern productivity application with a 90s retro aesthetic. It combines a Pomodoro timer, todo list, and ambient media to help you stay focused and productive.
+The Retro Productivity App is a modern productivity application with a 90s retro aesthetic. It combines a Pomodoro timer, todo list, and ambient media to help you stay focused and productive.
 
 ## 🌟 Main Features
 
 ### ⏲️ Pomodoro Timer
-- Customizable durations for:
+- Customizable times for:
   - Work (default 25 minutes)
   - Break (default 5 minutes)
   - Long break (default 15 minutes)
 - Session counter with automatic long breaks
-- Visual progress bar
+- Visual progress display
 - Desktop notifications
 - Sound alerts
 
@@ -19,12 +19,12 @@ A modern productivity application with a 90s retro aesthetic. It combines a Pomo
 - Priority levels (high, medium, low)
 - Due dates
 - Task categories
-- Search and filter functionality
+- Search and filtering
 - Task statistics
 - Export/Import tasks
 
 ### 🎵 Media Player
-- Live webcam feeds from various cities:
+- Live webcam views from different cities:
   - New York
   - Dublin
   - St. Petersburg
@@ -47,18 +47,18 @@ A modern productivity application with a 90s retro aesthetic. It combines a Pomo
 - Dark/Light theme
 - Responsive design
 - Offline support
-- Local storage for data
+- Local data storage
 - Keyboard shortcuts
 
 ## ⌨️ Keyboard Shortcuts
-- `Ctrl/Cmd + P`: Toggle Pomodoro sidebar
-- `Ctrl/Cmd + T`: Toggle Todo sidebar
+- `Ctrl/Cmd + P`: Open/close Pomodoro sidebar
+- `Ctrl/Cmd + T`: Open/close Todo sidebar
 
 ## 🚀 How to Use
 
 ### Pomodoro Timer
 1. Click the ⏲️ icon to open the Pomodoro timer
-2. Set your desired work and break durations
+2. Set desired work and break times
 3. Click "Start" to begin the timer
 4. Use "Pause" to temporarily stop the timer
 5. Use "Reset" to start over
@@ -69,11 +69,11 @@ A modern productivity application with a 90s retro aesthetic. It combines a Pomo
 3. Set priority, due date, and category (optional)
 4. Press Enter to add the task
 5. Check the checkbox to complete a task
-6. Use filters to organize your view
-7. Export/Import tasks using the buttons at the bottom
+6. Use filters to organize the view
+7. Export/Import tasks using buttons at the bottom
 
 ### Media Player
-1. Select a webcam from the dropdown to change the city view
+1. Select a webcam from the dropdown to change city view
 2. Choose a radio station or lofi station for playback
 3. Use the play/pause button to control playback
 4. Adjust volume using the slider
@@ -127,7 +127,7 @@ python -m http.server 8000
 python -m SimpleHTTPServer 8000
 ```
 
-3. Open your browser and navigate to `http://localhost:8000`
+3. Open your browser and go to `http://localhost:8000`
 
 ## 🌐 Supported Browsers
 - Google Chrome (recommended)
@@ -144,7 +144,7 @@ The application is fully responsive and works on:
 ## 🤝 Contributing
 Contributions are welcome! If you'd like to contribute:
 1. Fork the project
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+2. Create a new branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request

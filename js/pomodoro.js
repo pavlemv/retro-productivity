@@ -142,7 +142,11 @@ class PomodoroTimer {
 
   playNotification(type) {
     const sound = notificationSounds[type];
-    if (sound) {
+    if (sound && sound.playWithFallback) {
+      sound.currentTime = 0;
+      sound.playWithFallback();
+    } else if (sound) {
+      // Fallback for old audio system
       sound.currentTime = 0;
       sound.play().catch(error => console.log('Error playing notification:', error));
     }

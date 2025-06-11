@@ -12,14 +12,6 @@ window.locations = [
     city: "St. Petersburg, Russia",
     video: "https://www.youtube.com/embed/h1wly909BYw?autoplay=1&mute=1",
   },
-  {
-    city: "Tokyo, Japan",
-    video: "https://www.youtube.com/embed/QOjmvL3e7Lc?autoplay=1&mute=1",
-  },
-  {
-    city: "Paris, France",
-    video: "https://www.youtube.com/embed/hxydFLj0HRE?autoplay=1&mute=1",
-  }
 ];
 
 // Radio stations
@@ -62,11 +54,66 @@ window.lofiStations = [
   }
 ];
 
-// Notification sounds
+// Notification sounds with fallback
+window.notificationSounds = {};
+
+// Function to create audio with fallback
+function createAudioWithFallback(src, fallbackTone) {
+  const audio = new Audio();
+  audio.preload = 'auto';
+  
+  // Try to load the custom sound
+  audio.src = src;
+  
+  // Fallback to Web Audio API beep if file doesn't exist
+  audio.addEventListener('error', () => {
+    console.warn(`Audio file ${src} not found, using fallback tone`);
+    audio.fallbackTone = fallbackTone;
+  });
+  
+  // Custom play function that handles fallback
+  audio.playWithFallback = function() {
+    if (this.fallbackTone) {
+      playBeepTone(this.fallbackTone);
+    } else {
+      this.play().catch(error => {
+        console.warn('Audio play failed:', error);
+        playBeepTone(this.fallbackTone || 800);
+      });
+    }
+  };
+  
+  return audio;
+}
+
+// Function to generate beep tones using Web Audio API
+function playBeepTone(frequency = 800, duration = 200) {
+  try {
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+    
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+    
+    oscillator.frequency.value = frequency;
+    oscillator.type = 'sine';
+    
+    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration / 1000);
+    
+    oscillator.start(audioContext.currentTime);
+    oscillator.stop(audioContext.currentTime + duration / 1000);
+  } catch (error) {
+    console.warn('Web Audio API not supported:', error);
+  }
+}
+
+// Initialize notification sounds with fallbacks
 window.notificationSounds = {
-  work: new Audio('sounds/work.mp3'),
-  break: new Audio('sounds/break.mp3'),
-  longBreak: new Audio('sounds/long-break.mp3')
+  work: createAudioWithFallback('sounds/work.mp3', 880),      // Higher pitch for work
+  break: createAudioWithFallback('sounds/break.mp3', 660),   // Medium pitch for break
+  longBreak: createAudioWithFallback('sounds/long-break.mp3', 440) // Lower pitch for long break
 };
 
 // Default settings
