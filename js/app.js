@@ -11,11 +11,13 @@ class ThemeManager {
     // Default to dark mode
     if (savedTheme === 'light') {
       document.body.classList.remove('dark-mode');
-      this.themeSwitch.textContent = '🌙 Dark Mode';
+      this.themeSwitch.textContent = '🌙';
+      this.themeSwitch.setAttribute('aria-label', 'Switch to dark mode');
     } else {
       // Dark mode is default
       document.body.classList.add('dark-mode');
-      this.themeSwitch.textContent = '☀️ Light Mode';
+      this.themeSwitch.textContent = '☀️';
+      this.themeSwitch.setAttribute('aria-label', 'Switch to light mode');
     }
   }
 
@@ -23,55 +25,73 @@ class ThemeManager {
     this.themeSwitch.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
       const isDark = document.body.classList.contains('dark-mode');
-      this.themeSwitch.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+      this.themeSwitch.textContent = isDark ? '☀️' : '🌙';
+      this.themeSwitch.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
   }
 }
 
-// Sidebar handling
-class SidebarManager {
+// Panel handling for the new grid layout
+class PanelManager {
   constructor() {
     this.pomodoroIcon = document.getElementById('pomodoroIcon');
     this.todoIcon = document.getElementById('todoIcon');
-    this.pomodoroSidebar = document.getElementById('pomodoroSidebar');
-    this.todoSidebar = document.getElementById('todoSidebar');
+    this.pomodoroPanel = document.getElementById('pomodoroPanel');
+    this.todoPanel = document.getElementById('todoPanel');
+    this.mainGrid = document.querySelector('.main-grid');
     this.setupEventListeners();
+    this.checkScreenSize();
+    
+    // Listen for screen size changes
+    window.addEventListener('resize', () => this.checkScreenSize());
+  }
+
+  checkScreenSize() {
+    const isMobile = window.innerWidth <= 900;
+    
+    if (isMobile) {
+      // On mobile, panels can be toggled
+      this.enableMobileMode();
+    } else {
+      // On desktop, panels are always visible
+      this.enableDesktopMode();
+    }
+  }
+
+  enableDesktopMode() {
+    // Remove any mobile-specific classes
+    this.pomodoroPanel.classList.remove('hidden');
+    this.todoPanel.classList.remove('hidden');
+    
+    // Update control icons to be just visual indicators on desktop
+    this.pomodoroIcon.setAttribute('aria-expanded', 'true');
+    this.todoIcon.setAttribute('aria-expanded', 'true');
+  }
+
+  enableMobileMode() {
+    // On mobile, panels can be hidden by default
+    if (!this.pomodoroPanel.classList.contains('active') && !this.pomodoroPanel.classList.contains('hidden')) {
+      this.pomodoroPanel.classList.add('hidden');
+      this.pomodoroIcon.setAttribute('aria-expanded', 'false');
+    }
+    
+    if (!this.todoPanel.classList.contains('active') && !this.todoPanel.classList.contains('hidden')) {
+      this.todoPanel.classList.add('hidden');
+      this.todoIcon.setAttribute('aria-expanded', 'false');
+    }
   }
 
   setupEventListeners() {
     this.pomodoroIcon.addEventListener('click', () => {
-      const isOpen = this.pomodoroSidebar.classList.contains('open');
-      this.pomodoroSidebar.classList.toggle('open');
-      this.todoSidebar.classList.remove('open');
-      
-      // Update ARIA attributes
-      this.pomodoroIcon.setAttribute('aria-expanded', !isOpen);
-      this.todoIcon.setAttribute('aria-expanded', 'false');
+      if (window.innerWidth <= 900) {
+        this.toggleMobilePanel(this.pomodoroPanel, this.pomodoroIcon, this.todoPanel, this.todoIcon);
+      }
     });
 
     this.todoIcon.addEventListener('click', () => {
-      const isOpen = this.todoSidebar.classList.contains('open');
-      this.todoSidebar.classList.toggle('open');
-      this.pomodoroSidebar.classList.remove('open');
-      
-      // Update ARIA attributes
-      this.todoIcon.setAttribute('aria-expanded', !isOpen);
-      this.pomodoroIcon.setAttribute('aria-expanded', 'false');
-    });
-
-    // Close sidebars when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!this.pomodoroSidebar.contains(e.target) && 
-          !this.pomodoroIcon.contains(e.target) && 
-          !this.todoSidebar.contains(e.target) && 
-          !this.todoIcon.contains(e.target)) {
-        this.pomodoroSidebar.classList.remove('open');
-        this.todoSidebar.classList.remove('open');
-        
-        // Update ARIA attributes
-        this.pomodoroIcon.setAttribute('aria-expanded', 'false');
-        this.todoIcon.setAttribute('aria-expanded', 'false');
+      if (window.innerWidth <= 900) {
+        this.toggleMobilePanel(this.todoPanel, this.todoIcon, this.pomodoroPanel, this.pomodoroIcon);
       }
     });
 
@@ -81,23 +101,35 @@ class SidebarManager {
         switch (e.key.toLowerCase()) {
           case 'p':
             e.preventDefault();
-            const pomodoroOpen = this.pomodoroSidebar.classList.contains('open');
-            this.pomodoroSidebar.classList.toggle('open');
-            this.todoSidebar.classList.remove('open');
-            this.pomodoroIcon.setAttribute('aria-expanded', !pomodoroOpen);
-            this.todoIcon.setAttribute('aria-expanded', 'false');
+            if (window.innerWidth <= 900) {
+              this.toggleMobilePanel(this.pomodoroPanel, this.pomodoroIcon, this.todoPanel, this.todoIcon);
+            }
             break;
           case 't':
             e.preventDefault();
-            const todoOpen = this.todoSidebar.classList.contains('open');
-            this.todoSidebar.classList.toggle('open');
-            this.pomodoroSidebar.classList.remove('open');
-            this.todoIcon.setAttribute('aria-expanded', !todoOpen);
-            this.pomodoroIcon.setAttribute('aria-expanded', 'false');
+            if (window.innerWidth <= 900) {
+              this.toggleMobilePanel(this.todoPanel, this.todoIcon, this.pomodoroPanel, this.pomodoroIcon);
+            }
             break;
         }
       }
     });
+  }
+
+  toggleMobilePanel(activePanel, activeIcon, inactivePanel, inactiveIcon) {
+    const isHidden = activePanel.classList.contains('hidden');
+    
+    // Toggle the active panel
+    activePanel.classList.toggle('hidden');
+    activePanel.classList.toggle('active');
+    
+    // Hide the inactive panel
+    inactivePanel.classList.add('hidden');
+    inactivePanel.classList.remove('active');
+    
+    // Update ARIA attributes
+    activeIcon.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+    inactiveIcon.setAttribute('aria-expanded', 'false');
   }
 }
 
@@ -117,7 +149,7 @@ if ('serviceWorker' in navigator) {
 
 // Initialize managers
 const themeManager = new ThemeManager();
-const sidebarManager = new SidebarManager();
+const panelManager = new PanelManager();
 const errorNotificationManager = new ErrorNotificationManager();
 
 // Make error manager globally available
@@ -198,6 +230,7 @@ class ErrorNotificationManager {
 
   removeNotification(notification) {
     notification.classList.add('hide');
+    
     setTimeout(() => {
       if (notification.parentNode) {
         notification.parentNode.removeChild(notification);

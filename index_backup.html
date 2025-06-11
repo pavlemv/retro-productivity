@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="90s Inspired Productivity App with Pomodoro Timer, Todo List, and Ambient Media">
+  <title>90s Inspired Productivity App</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#E9967A">
+</head>
+
+<body class="dark-mode">
+  <button class="theme-switch" id="themeSwitch" aria-label="Toggle dark/light mode">☀️ Light Mode</button>
+  
+  <nav class="control-icons-container" role="navigation" aria-label="Main navigation">
+    <button class="control-icon pomodoro-icon" id="pomodoroIcon" aria-label="Open Pomodoro Timer" aria-expanded="false">⏲
+    </button>
+    <button class="control-icon todo-icon" id="todoIcon" aria-label="Open To-do List" aria-expanded="false">📝
+    </button>
+  </nav>
+
+  <aside class="sidebar-base sidebar" id="pomodoroSidebar" role="complementary" aria-labelledby="pomodoro-heading">
+    <h2 id="pomodoro-heading">Pomodoro Timer</h2>
+    <div class="pomodoro-settings">
+      <label for="workTime">Work (min):</label>
+      <input type="number" id="workTime" value="25" min="1" max="120" aria-describedby="work-time-desc">
+      <div id="work-time-desc" class="sr-only">Duration for work sessions in minutes</div>
+
+      <label for="breakTime">Break (min):</label>
+      <input type="number" id="breakTime" value="5" min="1" max="60" aria-describedby="break-time-desc">
+      <div id="break-time-desc" class="sr-only">Duration for short breaks in minutes</div>
+
+      <label for="longBreakTime">Long Break (min):</label>
+      <input type="number" id="longBreakTime" value="15" min="1" max="60" aria-describedby="long-break-desc">
+      <div id="long-break-desc" class="sr-only">Duration for long breaks in minutes</div>
+
+      <label for="sessionsBeforeLongBreak">Sessions before long break:</label>
+      <input type="number" id="sessionsBeforeLongBreak" value="4" min="1" max="10" aria-describedby="sessions-desc">
+      <div id="sessions-desc" class="sr-only">Number of work sessions before taking a long break</div>
+    </div>
+    <div class="pomodoro-controls">
+      <button id="startTimer" aria-label="Start timer">Start</button>
+      <button id="pauseTimer" aria-label="Pause timer">Pause</button>
+      <button id="resetTimer" aria-label="Reset timer">Reset</button>
+    </div>
+    <div class="timer-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Timer progress">
+      <div class="progress-bar" id="timerProgress"></div>
+    </div>
+    <div class="timer-display" id="timerDisplay" aria-live="polite" aria-label="Time remaining">25:00</div>
+    <div class="session-counter">Session: <span id="sessionCount" aria-live="polite">0</span></div>
+  </aside>
+
+  <aside class="sidebar-base todo-sidebar" id="todoSidebar" role="complementary" aria-labelledby="todo-heading">
+    <h2 id="todo-heading">To-Do List</h2>
+    <div class="todo-input-container">
+      <label for="todoInput" class="sr-only">New task</label>
+      <input type="text" id="todoInput" class="todo-input" placeholder="Add a new task..." aria-label="Enter new task">
+    </div>
+    <div id="todoList" class="todo-list" role="list" aria-label="Task list">
+      <!-- Todo items will be added here dynamically -->
+    </div>
+  </aside>
+
+  <main class="main-content" role="main">
+    <div class="video-container">
+      <iframe id="videoFrame" src="https://www.youtube.com/embed/rnXIjl_Rzy4?autoplay=1&mute=1" allowfullscreen 
+              title="Live webcam view" aria-label="Live webcam stream from selected city"></iframe>
+    </div>
+    <div class="controls">
+      <div class="control-group">
+        <label for="citySelect">Webcam</label>
+        <select id="citySelect" aria-describedby="city-desc">
+          <option value="">Select a webcam...</option>
+        </select>
+        <div id="city-desc" class="sr-only">Choose a city to view live webcam feed</div>
+      </div>
+      <div class="control-group">
+        <label for="radioSelect">Radio Station</label>
+        <select id="radioSelect" aria-describedby="radio-desc">
+          <option value="">Select a radio station...</option>
+        </select>
+        <div id="radio-desc" class="sr-only">Choose a radio station to listen to</div>
+      </div>
+      <div class="control-group">
+        <label for="lofiRadioSelect">Lofi Radio Station</label>
+        <select id="lofiRadioSelect" aria-describedby="lofi-desc">
+          <option value="">Select a lofi station...</option>
+        </select>
+        <div id="lofi-desc" class="sr-only">Choose a lofi music station for background ambience</div>
+      </div>
+    </div>
+    <div class="audio-player">
+      <div class="audio-controls">
+        <div class="player-controls">
+          <button id="playPauseBtn" class="control-btn" aria-label="Play or pause audio">▶</button>
+          <label for="volumeControl" class="sr-only">Volume control</label>
+          <input type="range" id="volumeControl" min="0" max="100" value="50" aria-label="Volume control" aria-valuetext="50 percent">
+        </div>
+        <span id="audioLabel" aria-live="polite">Select a station to play</span>
+      </div>
+      <audio id="audioPlayer" autoplay aria-label="Audio player">
+        <source id="audioSource" src="" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/todo.js"></script>
+  <script src="js/pomodoro.js"></script>
+  <script src="js/media.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
