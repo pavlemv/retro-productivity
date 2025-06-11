@@ -1,158 +1,158 @@
-# Retro Productivity App 🎮
+# Winductivity 🚀
 
-The Retro Productivity App is a modern productivity application with a 90s retro aesthetic. It combines a Pomodoro timer, todo list, and ambient media to help you stay focused and productive.
+**Winductivity** is a modern desktop productivity hub designed for secondary monitors. It combines a Pomodoro timer, todo list, and ambient media in a sleek grid layout optimized for desktop productivity workflows.
 
-## 🌟 Main Features
+## ✨ Features
 
-### ⏲️ Pomodoro Timer
-- Customizable times for:
-  - Work (default 25 minutes)
-  - Break (default 5 minutes)
-  - Long break (default 15 minutes)
-- Session counter with automatic long breaks
-- Visual progress display
-- Desktop notifications
-- Sound alerts
+### 🖥️ **Desktop-First Design**
+- **CSS Grid Layout** - Optimized for wide screens and secondary monitors
+- **Always-visible panels** - Pomodoro, Todo, and Video in perfect harmony
+- **Minimal UI** - Clean, distraction-free interface
+- **Dark mode default** - Easy on the eyes during long work sessions
 
-### 📝 Todo List
-- Add, complete, and delete tasks
-- Priority levels (high, medium, low)
-- Due dates
-- Task categories
-- Search and filtering
-- Task statistics
-- Export/Import tasks
+### ⏲️ **Pomodoro Timer**
+- Customizable work/break intervals (default: 25/5/15 minutes)
+- Visual progress bar with session counter
+- Audio notifications for session transitions
+- Settings persistence via localStorage
+- One-click start/pause/reset controls
 
-### 🎵 Media Player
-- Live webcam views from different cities:
-  - New York
-  - Dublin
-  - St. Petersburg
-  - Tokyo
-  - Paris
-- Radio stations:
-  - Radio New York Live
-  - Dublin City FM
-  - Smooth Jazz
-  - Classical Radio
-- Lofi radio stations:
-  - Lofi Girl
-  - Chillhop
-  - Box Lofi
-  - The Jazz Hop Café
-- Volume control
-- Play/Pause controls
+### 📝 **Smart Todo List**
+- Quick task addition (Enter to add)
+- Check/uncheck completion states
+- Delete tasks with confirmation
+- Auto-save to localStorage
+- Empty state handling
 
-### 🎨 General Features
-- Dark/Light theme
-- Responsive design
-- Offline support
-- Local data storage
-- Keyboard shortcuts
+### 🎬 **Ambient Media Center**
+- **YouTube video integration** - Live webcam feeds (default: NYC)
+- **Radio stations** - Various genres and stations
+- **Lofi music** - Perfect background for productivity
+- **Audio controls** - Play/pause and volume control
+- **Seamless switching** between audio sources
 
-## ⌨️ Keyboard Shortcuts
-- `Ctrl/Cmd + P`: Open/close Pomodoro sidebar
-- `Ctrl/Cmd + T`: Open/close Todo sidebar
+### 🎨 **Theme System**
+- **Dark mode** (default) - Black background, perfect for video content
+- **Light mode** - Clean, bright interface
+- **Instant switching** - Smooth transitions between themes
+- **Persistent preferences** - Remembers your choice
 
-## 🚀 How to Use
+## 🎯 **Perfect For**
+- **Secondary monitor** productivity setups
+- **Background ambience** while working/studying
+- **Pomodoro technique** practitioners
+- **Minimal distraction** environments
+- **Long coding/study sessions**
 
-### Pomodoro Timer
-1. Click the ⏲️ icon to open the Pomodoro timer
-2. Set desired work and break times
-3. Click "Start" to begin the timer
-4. Use "Pause" to temporarily stop the timer
-5. Use "Reset" to start over
+## 📱 **Responsive Design**
+- **Desktop (>900px)**: Full grid layout with all panels visible
+- **Tablet/Mobile (≤900px)**: Collapsible panels with toggle controls
+- **Touch-friendly** controls on mobile devices
 
-### Todo List
-1. Click the 📝 icon to open the todo list
-2. Enter a task in the input field
-3. Set priority, due date, and category (optional)
-4. Press Enter to add the task
-5. Check the checkbox to complete a task
-6. Use filters to organize the view
-7. Export/Import tasks using buttons at the bottom
+## ⌨️ **Keyboard Shortcuts**
+- `Ctrl/Cmd + P`: Toggle Pomodoro panel (mobile only)
+- `Ctrl/Cmd + T`: Toggle Todo panel (mobile only)
+- `Enter`: Add new todo task
+- `Space`: Play/pause audio (when focused)
 
-### Media Player
-1. Select a webcam from the dropdown to change city view
-2. Choose a radio station or lofi station for playback
-3. Use the play/pause button to control playback
-4. Adjust volume using the slider
+## 🚀 **Quick Start**
 
-## 🛠️ Technical Details
+### **Method 1: Direct Usage**
+1. Clone or download the repository
+2. Open `index.html` in your browser
+3. Start being productive!
 
-### Project Structure
-```
-retro-productivity/
-├── css/
-│   └── styles.css
-├── js/
-│   ├── app.js
-│   ├── data.js
-│   ├── todo.js
-│   ├── pomodoro.js
-│   └── media.js
-├── sounds/
-│   ├── work.mp3
-│   ├── break.mp3
-│   └── long-break.mp3
-├── images/
-│   └── pomodoro-icon.png
-├── index.html
-└── sw.js
-```
-
-### Technologies Used
-- HTML5
-- CSS3 (with CSS variables and modern properties)
-- Vanilla JavaScript (ES6+)
-- Service Workers for offline support
-- Local Storage for data persistence
-- Web Audio API
-- Notifications API
-
-## 🔧 Installation
-
-1. Clone the repository:
+### **Method 2: Local Server**
 ```bash
-git clone https://github.com/yourusername/retro-productivity.git
-cd retro-productivity
-```
+# Clone the repository
+git clone https://github.com/yourusername/winductivity.git
+cd winductivity
 
-2. Start a local server (e.g., with Python):
-```bash
-# For Python 3
+# Start local server (Python 3)
 python -m http.server 8000
 
-# For Python 2
-python -m SimpleHTTPServer 8000
+# Open browser
+open http://localhost:8000
 ```
 
-3. Open your browser and go to `http://localhost:8000`
+## 🛠️ **Project Structure**
+```
+winductivity/
+├── css/
+│   └── styles.css          # Complete styling system
+├── js/
+│   ├── app.js             # Main app & theme management
+│   ├── data.js            # Media data (stations, webcams)
+│   ├── todo.js            # Todo list functionality
+│   ├── pomodoro.js        # Timer logic & notifications
+│   └── media.js           # Audio/video controls
+├── sounds/                # Notification sounds
+├── images/               # App icons & assets
+├── index.html           # Main application
+├── manifest.json        # PWA manifest
+└── sw.js               # Service worker
+```
 
-## 🌐 Supported Browsers
-- Google Chrome (recommended)
-- Mozilla Firefox
-- Microsoft Edge
-- Safari
+## 💻 **Technology Stack**
+- **HTML5** - Semantic structure with ARIA accessibility
+- **CSS3** - Modern grid layout, custom properties, responsive design
+- **Vanilla JavaScript** - ES6+ classes, localStorage, modern APIs
+- **Progressive Web App** - Service worker, offline support, installable
+- **Accessibility** - Screen reader support, keyboard navigation
 
-## 📱 Responsiveness
-The application is fully responsive and works on:
-- Desktop computers
-- Tablets
-- Mobile phones
+## 🎨 **Design Philosophy**
+- **Function over form** - Every element serves productivity
+- **Secondary monitor optimized** - Designed for multi-monitor setups
+- **Ambient, not distracting** - Background companion, not main focus
+- **Instantly usable** - No configuration required, works out of the box
 
-## 🤝 Contributing
-Contributions are welcome! If you'd like to contribute:
-1. Fork the project
-2. Create a new branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+## 🌟 **Usage Scenarios**
 
-## 📄 License
+### **👨‍💻 Developer Setup**
+- Main monitor: IDE/code
+- Secondary monitor: Winductivity with NYC webcam + lofi music
+
+### **📚 Study Session**
+- Focus timer: 25-minute Pomodoro sessions
+- Background: Calming webcam view + ambient sounds
+- Task tracking: Study topics in todo list
+
+### **🏢 Work Environment**
+- Productivity timer for meetings/deep work
+- Todo list for daily tasks
+- Background ambience during calls
+
+## 📖 **Browser Support**
+- ✅ Chrome/Chromium (recommended)
+- ✅ Firefox
+- ✅ Safari
+- ✅ Edge
+
+## 🔧 **Advanced Features**
+- **LocalStorage persistence** - All settings and data saved
+- **Error handling** - Graceful fallbacks for media failures
+- **Cross-browser compatibility** - Works everywhere
+- **Notification system** - Desktop notifications for timer events
+- **Mobile responsive** - Collapsible panels for smaller screens
+
+## 🤝 **Contributing**
+We welcome contributions! Here's how:
+
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
+3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
+4. **Push** to the branch (`git push origin feature/amazing-feature`)
+5. **Open** a Pull Request
+
+## 📝 **License**
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
-- Lofi Girl for lofi music
-- Earthcam for webcam streams
-- Radio Garden for radio streams
+## 🙏 **Acknowledgments**
+- YouTube for video embedding capabilities
+- Radio stations for streaming content
+- Lofi music creators for ambient soundscapes
+- Open source community for inspiration
+
+---
+
+**Winductivity** - Where productivity meets ambience. Perfect for your secondary monitor. 🖥️✨
